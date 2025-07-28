@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Work - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="certificates.html">Certificates</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Work Section -->
+  <section class="work-section">
+    <h1>My Work</h1>
+    <p class="subtitle">A look at my designs and websites.</p>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Websites</button>
+      <button class="filter-btn" data-filter="poster">Posters</button>
+      <button class="filter-btn" data-filter="logo">Logos</button>
+    </div>
+
+    <!-- Work Gallery -->
+    <div class="work-gallery">
+      <!-- Example Projects -->
+      <div class="work-item web">
+        <img src="assets/humanify.png" alt="Website Project">
+        <div class="overlay">
+            <h3>Humanify Website</h3>
+            <p>A responsive business website with a modern and minimal UI, built for seamless user experience and service showcase.</p>
+            <a href="https://aneenaansar.github.io/Humanify/" target="_blank">website link</a>
+          </div>
+      </div>
+
+      <div class="work-item poster">
+        <img src="assets/BRANDING POSTER.png" alt="Poster Design">
+        <div class="overlay">
+          <h3>Event Poster</h3>
+          <p>Creative poster design for a marketing campaign.</p>
+        </div>
+      </div>
+
+      <div class="work-item logo">
+        <img src="assets/sweety pies logo.png" alt="Logo Design">
+        <div class="overlay">
+          <h3>Brand Logo</h3>
+          <p>Minimalistic logo created for a startup brand.</p>
+        </div>
+      </div>
+
+      <div class="work-item logo">
+        <img src="assets/shibi_logo.png" alt="Logo Design">
+        <div class="overlay">
+          <h3>Brand Logo</h3>
+          <p>Minimalistic logo created for a startup brand.</p>
+        </div>
+      </div>
+
+      <!-- Add More Projects -->
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
