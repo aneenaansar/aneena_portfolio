@@ -40,6 +40,24 @@
   .nav-links .active {
     color: #d4b996; /* biscuit color */
   }
+
+  /* Navigation Container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+  }
+  
+  /* Logo Styling */
+  .logo img {
+    height: 50px; /* adjust size */
+    width: auto;
+    display: block;
+  }
+  
   
   /* Hero Section */
   .hero {
@@ -223,7 +241,7 @@
   /* .skill i {
     margin-right: 8px;
     color: #d4b996; /* biscuit color for icons */
-  } */
+   */
   
   .skill:hover {
     background: #d4b996;
