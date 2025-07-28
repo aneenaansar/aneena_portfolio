@@ -219,6 +219,11 @@
     font-size: 0.9rem;
     transition: all 0.3s;
   }
+
+  /* .skill i {
+    margin-right: 8px;
+    color: #d4b996; /* biscuit color for icons */
+  } */
   
   .skill:hover {
     background: #d4b996;
@@ -279,3 +284,60 @@
     margin-bottom: 20px;
     color: #d4b996;
   }
+
+
+
+
+  /* Default icon spacing */
+.skill i {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+/* Programming Languages */
+.skill i.fa-python { color: #3776AB; }      /* Python blue */
+.skill i.fa-js { color: #F7DF1E; }          /* JavaScript yellow */
+
+/* Web Technologies */
+.skill i.fa-html5 { color: #E34F26; }       /* HTML orange */
+.skill i.fa-css3-alt { color: #1572B6; }    /* CSS blue */
+.skill i.fa-bootstrap { color: #7952B3; }   /* Bootstrap purple */
+.skill i.fa-react { color: #61DAFB; }       /* React cyan */
+.skill i.fa-wind { color: #38BDF8; }        /* Tailwind blue */
+.skill i.fa-vuejs { color: #42B883; }       /* Vue green */
+.skill i.fa-node { color: #83CD29; }        /* Node green */
+.skill i.fa-plug { color: #FF6B6B; }        /* REST API red */
+.skill i.fa-microsoft { color: #0078D7; }   /* ASP.NET blue */
+
+/* Databases */
+.skill i.fa-database { color: #FFA000; }    /* SQL/DB gold */
+
+/* Version Control */
+.skill i.fa-github { color: #fff; }         /* GitHub white */
+
+/* API Development */
+.skill i.fa-vial, .skill i.fa-flask { color: #FF9800; } /* Testing orange */
+
+/* CMS & Tools */
+.skill i.fa-wordpress { color: #21759B; }   /* WordPress blue */
+.skill i.fa-toolbox { color: #d4b996; }     /* Elementor biscuit */
+
+/* Digital Marketing */
+.skill i.fa-magnifying-glass { color: #4CAF50; }   /* SEO green */
+.skill i.fa-pen-nib { color: #FF9800; }            /* Content orange */
+.skill i.fa-facebook { color: #1877F2; }           /* Facebook blue */
+.skill i.fa-envelope { color: #EA4335; }           /* Email red */
+.skill i.fa-bullhorn { color: #FF5722; }           /* PPC orange */
+.skill i.fa-google { color: #4285F4; }             /* Google blue */
+.skill i.fa-instagram { color: #E1306C; }          /* Instagram pink */
+.skill i.fa-chart-line { color: #00C853; }         /* Analytics green */
+.skill i.fa-chart-pie { color: #FFC107; }          /* CRO yellow */
+.skill i.fa-robot { color: #9C27B0; }              /* Automation purple */
+
+/* Digital Marketing Tools */
+.skill i.fa-chart-bar { color: #29B6F6; }          /* Ahrefs blue */
+.skill i.fa-chart-area { color: #FF7043; }         /* HubSpot orange */
+.skill i.fa-envelope-open-text { color: #FFA500; } /* Mailchimp yellow */
+.skill i.fa-share-nodes { color: #1DA1F2; }        /* Hootsuite light blue */
+.skill i.fa-palette { color: #FF4081; }            /* Canva pink */
+.skill i.fa-share-alt { color: #4CAF50; }          /* Buffer green */
