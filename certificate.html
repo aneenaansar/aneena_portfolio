@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aneena | Certificates</title>
+    <title>Aneena Ansar | Certificates</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,60 +39,218 @@
             font-weight: 600;
         }
 
-        /* Navigation */
+        /* Header Styles */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
             background: rgba(12, 12, 12, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
+            border-bottom: 1px solid rgba(212, 185, 150, 0.15);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .logo-icon {
+            margin-right: 12px;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
         }
 
         .nav-links {
-            display: flex;
-            justify-content: center;
             list-style: none;
-            gap: 40px;
+            display: flex;
+            gap: 10px;
         }
 
-        .nav-links li a {
-            color: var(--light);
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: #b0b0c0;
             text-decoration: none;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
+            font-weight: 500;
+            padding: 12px 22px;
+            border-radius: 8px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
             position: relative;
-            padding: 8px 0;
+            overflow: hidden;
+        }
+
+        .nav-links a i {
+            font-size: 1rem;
             transition: var(--transition);
         }
 
-        .nav-links li a::after {
+        .nav-links a:hover {
+            color: #f0f0f0;
+            background: rgba(212, 185, 150, 0.1);
+        }
+
+        .nav-links a.active {
+            color: #f0f0f0;
+            background: rgba(212, 185, 150, 0.15);
+            box-shadow: 0 5px 15px rgba(212, 185, 150, 0.1);
+        }
+
+        .nav-links a.active::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
             background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .contact-button {
+            background: linear-gradient(135deg, #d4b996, #b89b76);
+            color: #0a0a12;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 20px;
+            font-size: 1rem;
         }
 
-        .nav-links li a:hover::after,
-        .nav-links li a.active::after {
-            width: 100%;
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 185, 150, 0.3);
         }
 
-        .nav-links li a:hover {
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #f0f0f0;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .menu-toggle:hover {
             color: var(--primary);
+            background: rgba(212, 185, 150, 0.1);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 18, 0.98);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.5s ease;
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            text-align: center;
+            width: 80%;
+        }
+
+        .mobile-nav-links li {
+            margin: 2rem 0;
+        }
+
+        .mobile-nav-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-radius: 12px;
+        }
+
+        .mobile-nav-links a.active {
+            color: var(--primary);
+            background: rgba(212, 185, 150, 0.15);
+        }
+
+        .mobile-nav-links a i {
+            font-size: 1.5rem;
+        }
+
+        .close-menu-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: #f0f0f0;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .close-menu-btn:hover {
+            color: var(--primary);
+            background: rgba(212, 185, 150, 0.1);
         }
 
         /* Certificates Section */
@@ -257,6 +415,7 @@
             color: #ccc;
             margin: 15px 0;
             font-size: 1rem;
+            line-height: 1.7;
         }
 
         .certificate-skills {
@@ -381,6 +540,12 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .nav-container {
+                padding: 18px 30px;
+            }
+        }
+
         @media (max-width: 992px) {
             .section-header h1 {
                 font-size: 2.8rem;
@@ -389,13 +554,17 @@
             .certificates-container {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
+            
+            .nav-links, .contact-button {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 20px;
-            }
-            
             .certificates-section {
                 padding: 130px 20px 80px;
             }
@@ -407,14 +576,13 @@
             .decoration {
                 display: none;
             }
+            
+            .nav-container {
+                padding: 15px 20px;
+            }
         }
 
         @media (max-width: 576px) {
-            .nav-links {
-                gap: 15px;
-                font-size: 12px;
-            }
-            
             .section-header h1 {
                 font-size: 2rem;
             }
@@ -426,21 +594,53 @@
             .floating-icon {
                 display: none;
             }
+            
+            .mobile-nav-links a {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Header -->
     <header>
         <div class="nav-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-certificate logo-icon"></i>
+                    Portfolio
+                </a>
+            </div>
+            
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="certificate.html" class="active">Certificates</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="work.html"><i class="fas fa-briefcase"></i> Work</a></li>
+                <li><a href="certificate.html" class="active"><i class="fas fa-medal"></i> Certificates</a></li>
             </ul>
+            
+            <button class="contact-button">
+                <i class="fas fa-paper-plane"></i> Contact
+            </button>
+            
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="close-menu-btn" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="work.html"><i class="fas fa-briefcase"></i> Work</a></li>
+            <li><a href="certificate.html" class="active"><i class="fas fa-medal"></i> Certificates</a></li>
+        </ul>
+    </div>
 
     <!-- Certificates Section -->
     <section class="certificates-section">
@@ -463,127 +663,160 @@
         <div class="certificates-container">
             <!-- Certificate 1 -->
             <div class="certificate-card">
-                <div class="certificate-image" style="background: linear-gradient(45deg, #1a2a6c, #b21f1f, #1a2a6c);">
-                    <div class="certificate-badge">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                </div>
-                <div class="certificate-content">
-                    <h3>Full Stack Web Development</h3>
-                    <div class="certificate-meta">
-                        <div><i class="fas fa-building"></i> Meta</div>
-                        <div><i class="fas fa-calendar-alt"></i> Jun 2023</div>
-                    </div>
-                    <p>Comprehensive certification covering front-end and back-end technologies including React, Node.js, Express, and MongoDB.</p>
-                    <div class="certificate-skills">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Express</span>
-                    </div>
-                    <a href="#" class="view-certificate">View Certificate <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <!-- Certificate 2 -->
-            <div class="certificate-card">
-                <div class="certificate-image" style="background: linear-gradient(45deg, #0f2027, #203a43, #0f2027);">
-                    <div class="certificate-badge">
-                        <i class="fas fa-code"></i>
-                    </div>
-                </div>
-                <div class="certificate-content">
-                    <h3>Advanced JavaScript Concepts</h3>
-                    <div class="certificate-meta">
-                        <div><i class="fas fa-building"></i> Google</div>
-                        <div><i class="fas fa-calendar-alt"></i> Mar 2023</div>
-                    </div>
-                    <p>Mastered advanced JavaScript concepts including closures, prototypes, asynchronous programming, and ES6+ features.</p>
-                    <div class="certificate-skills">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">ES6+</span>
-                        <span class="skill-tag">Async/Await</span>
-                        <span class="skill-tag">Design Patterns</span>
-                    </div>
-                    <a href="#" class="view-certificate">View Certificate <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <!-- Certificate 3 -->
-            <div class="certificate-card">
-                <div class="certificate-image" style="background: linear-gradient(45deg, #3a1c71, #d76d77, #3a1c71);">
+                <div class="certificate-image" style="background: linear-gradient(45deg, #200122, #6f0000, #200122);">
+                    <img src="./assets/images/bluepin.jpg" alt="Digital Marketing Internship Certificate">
                     <div class="certificate-badge">
                         <i class="fas fa-chart-line"></i>
                     </div>
                 </div>
                 <div class="certificate-content">
-                    <h3>Digital Marketing Professional</h3>
+                    <h3>Digital Marketing Intern</h3>
                     <div class="certificate-meta">
-                        <div><i class="fas fa-building"></i> HubSpot Academy</div>
-                        <div><i class="fas fa-calendar-alt"></i> Jan 2023</div>
+                        <div><i class="fas fa-building"></i> BLUEPIN DIGITAL KOCHI</div>
+                        <div><i class="fas fa-calendar-alt"></i> 2025 (Internship)</div>
                     </div>
-                    <p>Certified in inbound marketing strategies, SEO optimization, content marketing, and social media campaigns.</p>
+                    <p>Hands-on internship focused on digital marketing strategies, campaign management, and performance analysis. Executed successful social media campaigns and optimized Google Ads for client success.</p>
+                    <div class="certificate-skills">
+                        <span class="skill-tag">Campaigns</span>
+                        <span class="skill-tag">PPC</span>
+                        <span class="skill-tag">Content Creation</span>
+                        <span class="skill-tag">ROI Analysis</span>
+                    </div>
+                    <a href="assets/pdf/Aneena _bluepin.pdf" class="view-certificate">View Certificate <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            
+            <!-- Certificate 2 -->
+            <div class="certificate-card">
+                <div class="certificate-image" style="background: linear-gradient(45deg, #141e30, #243b55, #141e30);">
+                    <img src="assets/images/digitalx.jpg" alt="Digital Marketing Specialist Certificate">
+                    <div class="certificate-badge">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                </div>
+                <div class="certificate-content">
+                    <h3>Certified Digital Marketing Specialist</h3>
+                    <div class="certificate-meta">
+                        <div><i class="fas fa-building"></i> DIGITALX MARKETERS ACADEMY</div>
+                        <div><i class="fas fa-calendar-alt"></i> 2025</div>
+                    </div>
+                    <p>Comprehensive digital marketing certification covering SEO, SEM, social media marketing, content strategy, and analytics. Developed data-driven marketing campaigns with measurable results.</p>
                     <div class="certificate-skills">
                         <span class="skill-tag">SEO</span>
-                        <span class="skill-tag">Content Marketing</span>
                         <span class="skill-tag">Google Ads</span>
+                        <span class="skill-tag">Social Media</span>
                         <span class="skill-tag">Analytics</span>
                     </div>
-                    <a href="#" class="view-certificate">View Certificate <i class="fas fa-arrow-right"></i></a>
+                    <a href="assets/pdf/ANEENA _digitlx.pdf" class="view-certificate">View Certificate <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            
+            <!-- Certificate 3 -->
+            <div class="certificate-card">
+                <div class="certificate-image" style="background: linear-gradient(45deg, #3a1c71, #d76d77, #3a1c71);">
+                    <img src="assets/images/everythink.jpg" alt="Web Developer Certificate">
+                    <div class="certificate-badge">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                </div>
+                <div class="certificate-content">
+                    <h3>Web Developer</h3>
+                    <div class="certificate-meta">
+                        <div><i class="fas fa-building"></i> EVERYTHINK DESIGN STUDIO, QATAR</div>
+                        <div><i class="fas fa-calendar-alt"></i> 2024-2025</div>
+                    </div>
+                    <p>Professional certification showcasing expertise in responsive design, UX principles, and performance optimization. Created visually stunning and highly functional websites for international clients.</p>
+                    <div class="certificate-skills">
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">UX/UI</span>
+                        <span class="skill-tag">Performance</span>
+                        <span class="skill-tag">Accessibility</span>
+                    </div>
+                    <a href="assets/pdf/Aneena Certificate_everythink.pdf" class="view-certificate">View Certificate <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             
             <!-- Certificate 4 -->
             <div class="certificate-card">
-                <div class="certificate-image" style="background: linear-gradient(45deg, #141e30, #243b55, #141e30);">
+                <div class="certificate-image" style="background: linear-gradient(45deg, #0f2027, #203a43, #0f2027);">
+                    <img src="assets/images/offerpedia.jpg" alt="Full Stack Web Developer Certificate">
                     <div class="certificate-badge">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-code"></i>
                     </div>
                 </div>
                 <div class="certificate-content">
-                    <h3>Database Management</h3>
+                    <h3>Full Stack Web Developer</h3>
                     <div class="certificate-meta">
-                        <div><i class="fas fa-building"></i> Microsoft</div>
-                        <div><i class="fas fa-calendar-alt"></i> Sep 2022</div>
+                        <div><i class="fas fa-building"></i> OFFERPEDIA, BEHRAIN</div>
+                        <div><i class="fas fa-calendar-alt"></i> 2023-2024</div>
                     </div>
-                    <p>Expertise in database design, implementation, and management using SQL, PostgreSQL, and database optimization techniques.</p>
+                    <p>Advanced Full Stack Web Development program focusing on modern frameworks, best practices, and deployment strategies. Developed real-world applications using cutting-edge technologies and agile methodologies.</p>
                     <div class="certificate-skills">
-                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Express</span>
                         <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Database Design</span>
-                        <span class="skill-tag">Optimization</span>
+                        <span class="skill-tag">Docker</span>
                     </div>
-                    <a href="#" class="view-certificate">View Certificate <i class="fas fa-arrow-right"></i></a>
+                    <a href="assets/pdf/Experience Certificate - Offerpedia.pdf" class="view-certificate">View Certificate <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             
+            
             <!-- Certificate 5 -->
             <div class="certificate-card">
-                <div class="certificate-image" style="background: linear-gradient(45deg, #200122, #6f0000, #200122);">
+                <div class="certificate-image" style="background: linear-gradient(45deg, #1a2a6c, #b21f1f, #1a2a6c);">
+                    <img src="assets/images/efuturex.jpg" alt="Full Stack Web Development Certificate">
                     <div class="certificate-badge">
-                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-laptop-code"></i>
                     </div>
                 </div>
                 <div class="certificate-content">
-                    <h3>Cloud Infrastructure</h3>
+                    <h3>Full Stack Web Development</h3>
                     <div class="certificate-meta">
-                        <div><i class="fas fa-building"></i> Amazon Web Services</div>
-                        <div><i class="fas fa-calendar-alt"></i> Jul 2022</div>
+                        <div><i class="fas fa-building"></i> EFUTUREX PVT LTD</div>
+                        <div><i class="fas fa-calendar-alt"></i> 2023</div>
                     </div>
-                    <p>AWS Certified Solutions Architect with expertise in designing and deploying scalable cloud systems on Amazon Web Services.</p>
+                    <p>Comprehensive certification covering both frontend and backend technologies including HTML, CSS, JavaScript, React, Node.js, and MongoDB. Gained expertise in building responsive web applications and RESTful APIs.</p>
                     <div class="certificate-skills">
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Cloud Architecture</span>
-                        <span class="skill-tag">Scalability</span>
-                        <span class="skill-tag">Security</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
                     </div>
-                    <a href="#" class="view-certificate">View Certificate <i class="fas fa-arrow-right"></i></a>
+                    <a href="assets/pdf/completion certificate_efuturex.pdf" class="view-certificate">View Certificate <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
+           
         </div>
     </section>
     
     <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.menu-toggle');
+        const closeMenuBtn = document.querySelector('#closeMenu');
+        const mobileNav = document.querySelector('#mobileNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on links
+        const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
         // Simple animation for certificate cards
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.certificate-card');
@@ -600,12 +833,32 @@
             window.addEventListener('scroll', () => {
                 const scrollPosition = window.scrollY;
                 const decorations = document.querySelectorAll('.decoration');
+                const header = document.querySelector('header');
                 
                 decorations.forEach(decoration => {
                     const speed = decoration.classList.contains('circle') ? 0.2 : 0.1;
                     decoration.style.transform = `translateY(${scrollPosition * speed}px)`;
                 });
+                
+                // Header effect
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
+                } else {
+                    header.style.boxShadow = '0 5px 25px rgba(0, 0, 0, 0.4)';
+                }
             });
+        });
+        
+        // Contact button functionality
+        const contactBtn = document.querySelector('.contact-button');
+        contactBtn.addEventListener('click', () => {
+            // Scroll to contact section if it exists, or open email
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.location.href = 'mailto:aneena.ansar@example.com';
+            }
         });
     </script>
 </body>

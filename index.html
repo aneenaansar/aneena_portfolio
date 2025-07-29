@@ -131,80 +131,213 @@
       color: #0a0a12;
     }
 
-    /* Navigation */
+    /* NEW HEADER STYLES */
     header {
-      padding: 20px 0;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(10, 10, 18, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-      transition: all 0.4s ease;
-    }
-
-    .nav-container {
+      padding: 1.5rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 18, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 185, 150, 0.15);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
     }
-
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
       font-weight: 700;
+      font-size: 1.8rem;
       color: #d4b996;
       text-decoration: none;
-    }
-
-    .logo span {
-      color: #f0f0f0;
-    }
-
-    .nav-links {
-      list-style: none;
+      letter-spacing: 1px;
       display: flex;
-      gap: 30px;
+      align-items: center;
+      transition: all 0.3s ease;
     }
-
-    .nav-links a {
+    
+    .logo:hover {
       color: #f0f0f0;
+      transform: scale(1.05);
+    }
+    
+    .logo-icon {
+      margin-right: 10px;
+      color: #d4b996;
+      font-size: 1.4rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 10px;
+    }
+    
+    .nav-links li {
+      margin: 0 0.8rem;
+    }
+    
+    .nav-links a {
+      color: #b0b0c0;
       text-decoration: none;
       font-weight: 500;
-      padding: 8px 0;
+      font-size: 1.1rem;
       position: relative;
-      transition: color 0.3s;
+      padding: 0.8rem 1.2rem;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-
-    .nav-links a::after {
+    
+    .nav-links a i {
+      font-size: 0.9rem;
+    }
+    
+    .nav-links a:hover {
+      color: #f0f0f0;
+      background: rgba(212, 185, 150, 0.1);
+    }
+    
+    .nav-links a.active {
+      color: #f0f0f0;
+      background: rgba(212, 185, 150, 0.15);
+      box-shadow: 0 5px 15px rgba(212, 185, 150, 0.1);
+    }
+    
+    .nav-links a.active::before {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #d4b996, #b89b76);
-      transition: width 0.3s ease;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: #d4b996;
+      border-radius: 50%;
     }
-
-    .nav-links a:hover,
-    .nav-links .active {
-      color: #d4b996;
+    
+    .contact-button {
+      background: linear-gradient(135deg, #d4b996, #b89b76);
+      color: #0a0a12;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-
-    .nav-links a:hover::after,
-    .nav-links .active::after {
-      width: 100%;
+    
+    .contact-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(212, 185, 150, 0.3);
     }
-
-    .menu-toggle {
+    
+    /* Mobile Menu */
+    .mobile-menu-btn {
       display: none;
       background: none;
       border: none;
       color: #f0f0f0;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       cursor: pointer;
+      z-index: 1001;
+      transition: all 0.3s ease;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    
+    .mobile-menu-btn:hover {
+      color: #d4b996;
+      background: rgba(212, 185, 150, 0.1);
+    }
+    
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(10, 10, 18, 0.98);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      transition: all 0.5s ease;
+    }
+    
+    .mobile-nav.active {
+      left: 0;
+    }
+    
+    .mobile-nav-links {
+      list-style: none;
+      text-align: center;
+      width: 80%;
+    }
+    
+    .mobile-nav-links li {
+      margin: 1.8rem 0;
+    }
+    
+    .mobile-nav-links a {
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px 0;
+      border-radius: 12px;
+    }
+    
+    .mobile-nav-links a.active {
+      background: rgba(212, 185, 150, 0.15);
+      color: #d4b996;
+    }
+    
+    .mobile-nav-links a i {
+      font-size: 1.2rem;
+    }
+    
+    .close-menu-btn {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: none;
+      border: none;
+      color: #f0f0f0;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 10px;
+      border-radius: 50%;
+    }
+    
+    .close-menu-btn:hover {
+      color: #d4b996;
+      background: rgba(212, 185, 150, 0.1);
     }
 
     /* Hero Section */
@@ -214,6 +347,7 @@
       align-items: center;
       position: relative;
       overflow: hidden;
+      padding-top: 100px;
     }
 
     .hero::before {
@@ -742,30 +876,18 @@
       .about-text {
         text-align: center;
       }
+      
+      /* Header adjustments */
+      .nav-links, .contact-button {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
     }
 
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 10, 18, 0.95);
-        flex-direction: column;
-        padding: 20px 0;
-        gap: 15px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-      
-      .nav-links.active {
-        display: flex;
-      }
-      
-      .menu-toggle {
-        display: block;
-      }
-      
       .section-title h2 {
         font-size: 2rem;
       }
@@ -787,21 +909,43 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- NEW HEADER -->
   <header>
-    <div class="container nav-container">
-      <a href="index.html" class="logo">Aneena<span>.</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="certificate.html">Certificates</a></li>
-      </ul>
-      <button class="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
+    <div class="logo-container">
+      <a href="#" class="logo">
+        <i class="fas fa-code logo-icon"></i>
+        Portfolio
+      </a>
     </div>
+    
+    <ul class="nav-links">
+      <li><a href="index.html"> Home</a></li>
+      <li><a href="about.html"> About</a></li>
+      <li><a href="work.html" > Work</a></li>
+      <li><a href="certificate.html"> Certificates</a></li>
+    </ul>
+    
+    <button class="contact-button">
+      <i class="fas fa-paper-plane"></i> Contact
+    </button>
+    
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
   </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="close-menu-btn" id="closeMenu">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+      <li><a href="work.html" class="active"><i class="fas fa-briefcase"></i> Work</a></li>
+      <li><a href="certificate.html"><i class="fas fa-certificate"></i> Certificates</a></li>
+    </ul>
+  </div>
   
   <!-- Hero Section -->
   <section class="hero">
@@ -826,7 +970,7 @@
       <div class="photo-wrapper">
         <div class="photo-decoration"></div>
         <div class="photo-decoration"></div>
-        <img src="assets/neenu3.jpg" alt="Aneena Ansar" class="profile-pic">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Aneena Ansar" class="profile-pic">
       </div>
     </div>
   </section>
@@ -1037,12 +1181,17 @@
   </footer>
   
   <script>
-    // Menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('closeMenu');
+    const mobileNav = document.getElementById('mobileNav');
     
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileNav.classList.add('active');
+    });
+    
+    closeMenuBtn.addEventListener('click', () => {
+      mobileNav.classList.remove('active');
     });
     
     // Scroll animations
@@ -1059,12 +1208,18 @@
       
       // Header effect
       if (scrollPosition > 100) {
-        document.querySelector('header').style.padding = '10px 0';
-        document.querySelector('header').style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+        document.querySelector('header').style.padding = '12px 5%';
+        document.querySelector('header').style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.4)';
       } else {
-        document.querySelector('header').style.padding = '20px 0';
-        document.querySelector('header').style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+        document.querySelector('header').style.padding = '1.5rem 5%';
+        document.querySelector('header').style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
       }
+    });
+    
+    // Contact button animation
+    const contactBtn = document.querySelector('.contact-button');
+    contactBtn.addEventListener('click', () => {
+      window.location.href = '#contact';
     });
   </script>
 </body>

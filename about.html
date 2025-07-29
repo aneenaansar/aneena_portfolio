@@ -36,60 +36,228 @@
             font-weight: 600;
         }
 
-        /* Navigation */
+        /* NEW HEADER STYLES */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            background: rgba(12, 12, 12, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+          padding: 0;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          background: rgba(10, 10, 18, 0.95);
+          backdrop-filter: blur(12px);
+          z-index: 1000;
+          box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+          transition: all 0.4s ease;
+          border-bottom: 1px solid rgba(212, 185, 150, 0.15);
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 20px 40px;
+        }
+
+        .logo-container {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .logo {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: var(--primary);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          transition: var(--transition);
+        }
+
+        .logo-icon {
+          margin-right: 12px;
+          font-size: 1.4rem;
+          color: var(--primary);
+        }
+
+        .logo span {
+          color: #f0f0f0;
+          transition: var(--transition);
+        }
+
+        .logo:hover {
+          transform: translateY(-2px);
+        }
+
+        .logo:hover span {
+          color: var(--primary);
         }
 
         .nav-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 40px;
+          list-style: none;
+          display: flex;
+          gap: 10px;
         }
 
-        .nav-links li a {
-            color: var(--light);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
-            position: relative;
-            padding: 8px 0;
-            transition: var(--transition);
+        .nav-links li {
+          margin: 0;
         }
 
-        .nav-links li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
+        .nav-links a {
+          color: #b0b0c0;
+          text-decoration: none;
+          font-weight: 500;
+          padding: 12px 22px;
+          border-radius: 8px;
+          transition: var(--transition);
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 1.1rem;
+          position: relative;
+          overflow: hidden;
         }
 
-        .nav-links li a:hover::after,
-        .nav-links li a.active::after {
-            width: 100%;
+        .nav-links a i {
+          font-size: 1rem;
+          transition: var(--transition);
         }
 
-        .nav-links li a:hover {
-            color: var(--primary);
+        .nav-links a:hover {
+          color: #f0f0f0;
+          background: rgba(212, 185, 150, 0.1);
+        }
+
+        .nav-links a.active {
+          color: #f0f0f0;
+          background: rgba(212, 185, 150, 0.15);
+          box-shadow: 0 5px 15px rgba(212, 185, 150, 0.1);
+        }
+
+        .nav-links a.active::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 6px;
+          height: 6px;
+          background: var(--primary);
+          border-radius: 50%;
+        }
+
+        .contact-button {
+          background: linear-gradient(135deg, #d4b996, #b89b76);
+          color: #0a0a12;
+          border: none;
+          padding: 12px 28px;
+          border-radius: 30px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: var(--transition);
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-left: 20px;
+          font-size: 1rem;
+        }
+
+        .contact-button:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(212, 185, 150, 0.3);
+        }
+
+        .menu-toggle {
+          display: none;
+          background: none;
+          border: none;
+          color: #f0f0f0;
+          font-size: 1.8rem;
+          cursor: pointer;
+          transition: var(--transition);
+          padding: 10px;
+          border-radius: 8px;
+        }
+
+        .menu-toggle:hover {
+          color: var(--primary);
+          background: rgba(212, 185, 150, 0.1);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100vh;
+          background: rgba(10, 10, 18, 0.98);
+          backdrop-filter: blur(10px);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+          transition: all 0.5s ease;
+        }
+
+        .mobile-nav.active {
+          left: 0;
+        }
+
+        .mobile-nav-links {
+          list-style: none;
+          text-align: center;
+          width: 80%;
+        }
+
+        .mobile-nav-links li {
+          margin: 2rem 0;
+        }
+
+        .mobile-nav-links a {
+          color: #f0f0f0;
+          text-decoration: none;
+          font-size: 1.8rem;
+          font-weight: 500;
+          transition: var(--transition);
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          padding: 20px 0;
+          border-radius: 12px;
+        }
+
+        .mobile-nav-links a.active {
+          color: var(--primary);
+          background: rgba(212, 185, 150, 0.15);
+        }
+
+        .mobile-nav-links a i {
+          font-size: 1.5rem;
+        }
+
+        .close-menu-btn {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+          background: none;
+          border: none;
+          color: #f0f0f0;
+          font-size: 2.5rem;
+          cursor: pointer;
+          transition: var(--transition);
+          padding: 10px;
+          border-radius: 50%;
+        }
+
+        .close-menu-btn:hover {
+          color: var(--primary);
+          background: rgba(212, 185, 150, 0.1);
         }
 
         /* About Section */
@@ -346,6 +514,12 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .nav-container {
+                padding: 20px 30px;
+            }
+        }
+
         @media (max-width: 992px) {
             .about-container {
                 gap: 40px;
@@ -354,13 +528,17 @@
             .about-content h1 {
                 font-size: 2.8rem;
             }
+            
+            .nav-links, .contact-button {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 20px;
-            }
-            
             .about-section {
                 padding: 130px 20px 80px;
             }
@@ -372,14 +550,13 @@
             .decoration {
                 display: none;
             }
+            
+            .nav-container {
+                padding: 18px 20px;
+            }
         }
 
         @media (max-width: 576px) {
-            .nav-links {
-                gap: 15px;
-                font-size: 12px;
-            }
-            
             .about-content h1 {
                 font-size: 2rem;
             }
@@ -388,21 +565,53 @@
                 flex-direction: column;
                 gap: 30px;
             }
+            
+            .mobile-nav-links a {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- NEW HEADER -->
     <header>
-        <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="certificates.html">Certificates</a></li>
-            </ul>
+      <div class="nav-container">
+        <div class="logo-container">
+          <a href="index.html" class="logo">
+            <i class="fas fa-code logo-icon"></i>
+            Aneena<span>.</span>
+          </a>
         </div>
+        
+        <ul class="nav-links">
+          <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+          <li><a href="work.html"><i class="fas fa-briefcase"></i> Work</a></li>
+          <li><a href="certificate.html"><i class="fas fa-certificate"></i> Certificates</a></li>
+        </ul>
+        
+        <button class="contact-button">
+          <i class="fas fa-paper-plane"></i> Contact
+        </button>
+        
+        <button class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+      <button class="close-menu-btn" id="closeMenu">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="work.html"><i class="fas fa-briefcase"></i> Work</a></li>
+        <li><a href="certificate.html"><i class="fas fa-certificate"></i> Certificates</a></li>
+      </ul>
+    </div>
 
     <!-- About Section -->
     <section class="about-section">
@@ -413,7 +622,7 @@
         <div class="about-container">
             <div class="about-photo">
                 <div class="photo-frame">
-                    <img src="assets/neenu2.jpg" alt="Aneena - Full Stack Developer">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Aneena - Full Stack Developer">
                 </div>
             </div>
             <div class="about-content">
@@ -467,31 +676,53 @@
     </section>
     
     <script>
-        // Simple animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const aboutPhoto = document.querySelector('.about-photo');
-            const aboutContent = document.querySelector('.about-content');
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.menu-toggle');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '0';
+                header.style.boxShadow = '0 5px 25px rgba(0, 0, 0, 0.4)';
+            } else {
+                header.style.padding = '0';
+                header.style.boxShadow = '0 5px 25px rgba(0, 0, 0, 0.3)';
+            }
+        });
+        
+        // Contact button functionality
+        const contactBtn = document.querySelector('.contact-button');
+        contactBtn.addEventListener('click', () => {
+            // Scroll to contact section if it exists, or open email
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.location.href = 'mailto:aneena.ansar@example.com';
+            }
+        });
+        
+        // Animation for decorative elements
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const decorations = document.querySelectorAll('.decoration');
             
-            // Add fade-in effect on load
-            setTimeout(() => {
-                aboutPhoto.style.opacity = '1';
-                aboutPhoto.style.transform = 'translateY(0)';
-            }, 300);
-            
-            setTimeout(() => {
-                aboutContent.style.opacity = '1';
-                aboutContent.style.transform = 'translateY(0)';
-            }, 600);
-            
-            // Add scroll animation for decorative elements
-            window.addEventListener('scroll', () => {
-                const scrollPosition = window.scrollY;
-                const decorations = document.querySelectorAll('.decoration');
-                
-                decorations.forEach(decoration => {
-                    const speed = decoration.classList.contains('circle') ? 0.2 : 0.1;
-                    decoration.style.transform = `translateY(${scrollPosition * speed}px)`;
-                });
+            decorations.forEach(decoration => {
+                const speed = decoration.classList.contains('circle') ? 0.2 : 0.1;
+                decoration.style.transform = `translateY(${scrollPosition * speed}px)`;
             });
         });
     </script>
