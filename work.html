@@ -3,31 +3,508 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Work - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Creative Works | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4B996;
+      --dark: #0A0A0A;
+      --light: #F8F8F8;
+      --accent: #2D4263;
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Header Styles */
+    header {
+      padding: 1.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 185, 150, 0.1);
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: var(--transition);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .nav-links a.active {
+      color: var(--gold);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 0 5%;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      max-width: 600px;
+      z-index: 2;
+      margin-top: 60px;
+    }
+    
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+      line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      max-width: 500px;
+      opacity: 0.9;
+    }
+    
+    .hero-cta {
+      display: inline-block;
+      padding: 12px 30px;
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 30px;
+      transition: var(--transition);
+      margin-top: 1rem;
+    }
+    
+    .hero-cta:hover {
+      background: var(--gold);
+      color: var(--dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(212, 185, 150, 0.2);
+    }
+    
+    .hero-decor {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      font-size: 18rem;
+      color: rgba(212, 185, 150, 0.05);
+      z-index: 1;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    
+    /* Work Section */
+    .work-section {
+      padding: 100px 5%;
+      position: relative;
+      background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 1)), 
+                  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23101010"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%23222" stroke-width="1"/></svg>');
+      background-size: cover;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--gold);
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.8;
+    }
+    
+    /* Filter Buttons */
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    
+    .filter-btn {
+      background: transparent;
+      color: var(--light);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .filter-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background: var(--gold);
+      z-index: -1;
+      transition: var(--transition);
+    }
+    
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: var(--dark);
+      border-color: var(--gold);
+    }
+    
+    .filter-btn.active::before,
+    .filter-btn:hover::before {
+      width: 100%;
+    }
+    
+    /* Work Gallery */
+    .work-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    
+    .work-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 380px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 0.6s forwards;
+    }
+    
+    .work-item:nth-child(1) { animation-delay: 0.1s; }
+    .work-item:nth-child(2) { animation-delay: 0.2s; }
+    .work-item:nth-child(3) { animation-delay: 0.3s; }
+    .work-item:nth-child(4) { animation-delay: 0.4s; }
+    .work-item:nth-child(5) { animation-delay: 0.5s; }
+    .work-item:nth-child(6) { animation-delay: 0.6s; }
+    
+    @keyframes fadeUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .work-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .work-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition);
+    }
+    
+    .work-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 30%, transparent 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .work-item:hover .overlay {
+      opacity: 1;
+    }
+    
+    .overlay h3 {
+      color: var(--gold);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    
+    .overlay p {
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    
+    .overlay a {
+      display: inline-flex;
+      align-items: center;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .overlay a i {
+      margin-left: 8px;
+      transition: var(--transition);
+    }
+    
+    .overlay a:hover {
+      color: var(--light);
+    }
+    
+    .overlay a:hover i {
+      transform: translateX(5px);
+    }
+    
+    .work-tag {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    /* Footer */
+    footer {
+      background: rgba(10, 10, 10, 0.9);
+      padding: 40px 5%;
+      text-align: center;
+      border-top: 1px solid rgba(212, 185, 150, 0.1);
+    }
+    
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--gold);
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background: var(--gold);
+      color: var(--dark);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .hero-decor {
+        font-size: 12rem;
+      }
+      
+      .work-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-content {
+        text-align: center;
+        margin: 0 auto;
+      }
+      
+      .hero-decor {
+        display: none;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+        color: var(--light);
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .work-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-
   <!-- Header -->
   <header>
-    <div class="nav-container">
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="work.html" class="active">Work</a></li>
-        <li><a href="certificates.html">Certificates</a></li>
-      </ul>
-    </div>
+    <a href="#" class="logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+    </ul>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
   </header>
 
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Creative Portfolio</h1>
+      <p class="hero-subtitle">Explore my design journey through carefully crafted websites, posters, and branding projects</p>
+      <a href="#work" class="hero-cta">View Projects <i class="fas fa-arrow-down"></i></a>
+    </div>
+    <div class="hero-decor">Work</div>
+  </section>
+
   <!-- Work Section -->
-  <section class="work-section">
-    <h1>My Work</h1>
-    <p class="subtitle">A look at my designs and websites.</p>
+  <section class="work-section" id="work">
+    <div class="section-header">
+      <h2 class="section-title">My Creative Work</h2>
+      <p class="section-subtitle">A curated collection of my design projects showcasing creativity and technical expertise</p>
+    </div>
 
     <!-- Filter Buttons -->
     <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn active" data-filter="all">All Projects</button>
       <button class="filter-btn" data-filter="web">Websites</button>
       <button class="filter-btn" data-filter="poster">Posters</button>
       <button class="filter-btn" data-filter="logo">Logos</button>
@@ -35,44 +512,131 @@
 
     <!-- Work Gallery -->
     <div class="work-gallery">
-      <!-- Example Projects -->
+      <!-- Website Project 1 -->
       <div class="work-item web">
-        <img src="assets/humanify.png" alt="Website Project">
+        <img src="assets/humanify.png" alt="Humanify Website">
         <div class="overlay">
-            <h3>Humanify Website</h3>
-            <p>A responsive business website with a modern and minimal UI, built for seamless user experience and service showcase.</p>
-            <a href="https://aneenaansar.github.io/Humanify/" target="_blank">website link</a>
-          </div>
+          <span class="work-tag">Web Design</span>
+          <h3>Humanify Website</h3>
+          <p>A responsive business website with a modern and minimal UI, built for seamless user experience and service showcase.</p>
+          <a href="https://aneenaansar.github.io/Humanify/" target="_blank">
+            View Project <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
       </div>
 
+      <!-- Poster Project -->
       <div class="work-item poster">
-        <img src="assets/BRANDING POSTER.png" alt="Poster Design">
+        <img src="https://images.unsplash.com/photo-1602576666092-bf6447a729fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80" alt="Marketing Campaign Poster">
         <div class="overlay">
-          <h3>Event Poster</h3>
-          <p>Creative poster design for a marketing campaign.</p>
+          <span class="work-tag">Poster Design</span>
+          <h3>Marketing Campaign</h3>
+          <p>Creative poster design for a marketing campaign with vibrant colors and modern typography.</p>
+          <a href="#">
+            View Details <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </div>
 
+      <!-- Logo Project 1 -->
       <div class="work-item logo">
-        <img src="assets/sweety pies logo.png" alt="Logo Design">
+        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1780&q=80" alt="Sweety Pies Logo">
         <div class="overlay">
-          <h3>Brand Logo</h3>
-          <p>Minimalistic logo created for a startup brand.</p>
+          <span class="work-tag">Logo Design</span>
+          <h3>Sweety Pies Brand</h3>
+          <p>Minimalistic and playful logo created for a bakery startup with a modern aesthetic.</p>
+          <a href="#">
+            View Details <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </div>
 
+      <!-- Logo Project 2 -->
       <div class="work-item logo">
-        <img src="assets/shibi_logo.png" alt="Logo Design">
+        <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80" alt="Shibi Logo">
         <div class="overlay">
-          <h3>Brand Logo</h3>
-          <p>Minimalistic logo created for a startup brand.</p>
+          <span class="work-tag">Logo Design</span>
+          <h3>Shibi Brand Identity</h3>
+          <p>Modern geometric logo for a fashion brand focusing on elegance and simplicity.</p>
+          <a href="#">
+            View Details <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </div>
 
-      <!-- Add More Projects -->
+      <!-- Website Project 2 -->
+      <div class="work-item web">
+        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80" alt="Eco App Dashboard">
+        <div class="overlay">
+          <span class="work-tag">Web Design</span>
+          <h3>Eco App Dashboard</h3>
+          <p>Interactive dashboard design for an environmental tracking application with data visualization.</p>
+          <a href="#">
+            View Project <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Poster Project 2 -->
+      <div class="work-item poster">
+        <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80" alt="Music Festival Poster">
+        <div class="overlay">
+          <span class="work-tag">Poster Design</span>
+          <h3>Music Festival Poster</h3>
+          <p>Vibrant poster design for an international music festival with dynamic typography.</p>
+          <a href="#">
+            View Details <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">Portfolio</div>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-behance"></i></a>
+      <a href="#"><i class="fab fa-dribbble"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p class="copyright">© 2023 Creative Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const workItems = document.querySelectorAll('.work-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          const filter = button.getAttribute('data-filter');
+          
+          // Filter items
+          workItems.forEach(item => {
+            if (filter === 'all' || item.classList.contains(filter)) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      // Smooth scrolling
+      document.querySelector('.hero-cta').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
