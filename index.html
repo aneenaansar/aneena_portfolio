@@ -441,6 +441,12 @@
       transform: translateY(-5px);
     }
 
+    /* WhatsApp specific style */
+    .social-links a.whatsapp:hover {
+      background: #25D366; /* WhatsApp brand color */
+      color: white;
+    }
+
     .photo-wrapper {
       flex: 1;
       display: flex;
@@ -905,6 +911,20 @@
         flex-direction: column;
         align-items: center;
       }
+      
+      /* Adjust social links for mobile */
+      .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .social-links a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
@@ -913,7 +933,6 @@
   <header>
     <div class="logo-container">
       <a href="#" class="logo">
-        <i class="fas fa-code logo-icon"></i>
         Portfolio
       </a>
     </div>
@@ -961,16 +980,18 @@
         </div>
         
         <div class="social-links">
-          <a href="https://github.com/aneenaansar"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/aneena-ansar"><i class="fab fa-linkedin"></i></a>
-          <a href="https://www.instagram.com/nee.nuhh_/"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/aneenaansar" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/aneena-ansar" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/nee.nuhh_/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <!-- WhatsApp Icon Added Here -->
+          <a href="https://wa.me/+97470035531" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
       
       <div class="photo-wrapper">
         <div class="photo-decoration"></div>
         <div class="photo-decoration"></div>
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Aneena Ansar" class="profile-pic">
+        <img src="assets/images/neenu3.jpg" alt="Aneena Ansar" class="profile-pic">
       </div>
     </div>
   </section>
@@ -986,7 +1007,7 @@
           <a href="about.html" class="btn">Learn More</a>
         </div>
         <div class="about-image" id="aboutImage">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Coding Workspace">
+          <img src="assets/images/aneena_logo.png" alt="Coding Workspace">
         </div>
       </div>
     </div>
@@ -1157,7 +1178,7 @@
     <div class="container">
       <h2>Interested in working together?</h2>
       <p>I'm currently available for freelance projects and full-time opportunities. Let's create something amazing!</p>
-      <a href="mailto:aneena.ansar@example.com" class="btn">Get in Touch</a>
+      <a href="mailto:aneenaanzz123@gmail.com" class="btn">Get in Touch</a>
     </div>
   </section>
   
@@ -1172,9 +1193,11 @@
         <a href="certificates.html">Certificates</a>
       </div>
       <div class="social-links">
-        <a href="https://github.com/aneenaansar"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/aneena-ansar"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/nee.nuhh_/"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/aneenaansar" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/aneena-ansar" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/nee.nuhh_/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <!-- WhatsApp in footer too -->
+        <a href="https://wa.me/1234567890" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
       <p class="copyright">© 2023 Aneena Ansar. All rights reserved.</p>
     </div>
